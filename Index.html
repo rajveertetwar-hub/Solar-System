@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solar System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: #020617;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Stars */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 6px white;
+        }
+
+        .star:nth-child(1) {
+            top: 10%;
+            left: 15%;
+        }
+
+        .star:nth-child(2) {
+            top: 20%;
+            left: 80%;
+        }
+
+        .star:nth-child(3) {
+            top: 70%;
+            left: 10%;
+        }
+
+        .star:nth-child(4) {
+            top: 85%;
+            left: 75%;
+        }
+
+        .star:nth-child(5) {
+            top: 35%;
+            left: 90%;
+        }
+
+        .star:nth-child(6) {
+            top: 75%;
+            left: 45%;
+        }
+
+        /* Solar System */
+        .solar-system {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background: radial-gradient(
+                circle,
+                #fff176,
+                #ffb300,
+                #ff6f00
+            );
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 30px #ff9800,
+                0 0 70px #ff9800;
+        }
+
+        /* Common Orbit */
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation-name: orbit;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        /* Mercury Orbit */
+        .mercury-orbit {
+            width: 180px;
+            height: 180px;
+            animation-duration: 5s;
+        }
+
+        .mercury {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8c8c8c;
+            border-radius: 50%;
+        }
+
+        /* Venus Orbit */
+        .venus-orbit {
+            width: 280px;
+            height: 280px;
+            animation-duration: 8s;
+        }
+
+        .venus {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d99a3d;
+            border-radius: 50%;
+        }
+
+        /* Earth Orbit */
+        .earth-orbit {
+            width: 400px;
+            height: 400px;
+            animation-duration: 12s;
+        }
+
+        .earth {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            top: -17.5px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            background: linear-gradient(
+                135deg,
+                #1976d2 45%,
+                #43a047 45%,
+                #43a047 65%,
+                #1976d2 65%
+            );
+
+            border-radius: 50%;
+        }
+
+        /* Moon Orbit */
+        .moon-orbit {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+
+            animation: moon-orbit 2s linear infinite;
+        }
+
+        /* Moon */
+        .moon {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            background: #d3d3d3;
+            border-radius: 50%;
+        }
+
+        /* Planet Labels */
+        .label {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: white;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        /* Planet Orbit Animation */
+        @keyframes orbit {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Moon Orbit Animation */
+        @keyframes moon-orbit {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .solar-system {
+                transform: translate(-50%, -50%) scale(0.7);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .solar-system {
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Stars -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="solar-system">
+
+        <!-- Sun -->
+        <div class="sun"></div>
+
+        <!-- Mercury -->
+        <div class="orbit mercury-orbit">
+            <div class="mercury">
+                <span class="label">Mercury</span>
+            </div>
+        </div>
+
+        <!-- Venus -->
+        <div class="orbit venus-orbit">
+            <div class="venus">
+                <span class="label">Venus</span>
+            </div>
+        </div>
+
+        <!-- Earth -->
+        <div class="orbit earth-orbit">
+
+            <div class="earth">
+
+                <!-- Moon -->
+                <div class="moon-orbit">
+                    <div class="moon"></div>
+                </div>
+
+                <span class="label">Earth</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
